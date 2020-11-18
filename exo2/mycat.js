@@ -1,13 +1,18 @@
-process.argv.forEach((val, index) => {
-    console.log(`${index}: ${val}`);
-    if (index < 2) {
-        console.log(process.argv0)
-        
-    }
-    else if (val === "-e") {
-        console.log("tot")
-    }
-    else {
-        console.log(`${index}: ${val}`);
-    }
-  });
+  function mycat () {
+  console.log(process.argv)
+  if (process.argv.length < 3) {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+      rl.on("line", name => {
+        console.log(name)
+    });
+  }
+  else {
+  console.log(process.argv[2])
+  }
+  }
+
+  mycat();
